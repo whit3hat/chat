@@ -39,18 +39,22 @@ function App() {
     </div>
   );
 
+  // Function to sign into the application using Google Auth
   function SignIn() {
     const signInWithGoogle = () => {
       const provider = new firebase.auth.GoogleAuthProvider();
       auth.signInWithPopup(provider);
     }
-    
+   // Button for Sign In
     return (
       <button onClick={signInWithGoogle}>Sign in with Google</button>
     )
-
+    // Function to allow users to Sign Out
     function SignOut() {
-      
+      return auth.currentUser && (
+        // Buttton that calls the function to Sign Out only if user is signed in already
+        <button onClick={() => auth.signOut()}>Sign Out</button>
+      )
     }
   }
 
