@@ -60,6 +60,8 @@ function App() {
 
   function ChatRoom() {
 
+    const messagesRef = firestore.collection('messages');
+    const query = messagesRef.orderBy('createdAt').limit(25);
   }
 }
 
